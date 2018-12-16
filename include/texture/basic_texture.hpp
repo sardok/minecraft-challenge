@@ -2,19 +2,21 @@
 #define TEXTURE_BASIC_TEXTURE_HPP
 #include <string>
 #include <GL/glew.h>
+#include <SFML/Graphics.hpp>
 
 class BasicTexture
 {
-  public:
-    BasicTexture() = default;
-    BasicTexture(const std::string &file);
+public:
+  BasicTexture() = default;
+  BasicTexture(const std::string &file);
 
-    ~BasicTexture();
+  ~BasicTexture();
 
-    void load_from_file(const std::string &file);
-    void bind_texture() const;
+  void load_from_image(const sf::Image &img);
+  void load_from_file(const std::string &file);
+  void bind_texture() const;
 
-  private:
-    GLuint id;
+private:
+  GLuint id;
 };
 #endif

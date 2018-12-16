@@ -2,17 +2,20 @@
 #include <renderer/quad_renderer.hpp>
 #include <camera.hpp>
 #include <maths/matrix.hpp>
+#include <mesh.hpp>
 
 QuadRenderer::QuadRenderer()
 {
     texture.load_from_file("test");
 
-    quad_model.add_data(
-        {-0.5, 0.5, 0,
-         0.5, 0.5, 0,
-         0.5, -0.5, 0,
-         -0.5, -0.5, 0},
-        {
+    auto mesh = Mesh{
+
+        .vertex_positions = {
+            -0.5, 0.5, 0,
+            0.5, 0.5, 0,
+            0.5, -0.5, 0,
+            -0.5, -0.5, 0},
+        .texture_coords = {
             0,
             1,
             1,
@@ -22,14 +25,16 @@ QuadRenderer::QuadRenderer()
             0,
             0,
         },
-        {
+        .indices = {
             0,
             1,
             2,
             2,
             3,
             0,
-        });
+        }};
+
+    quad_model.add_data(mesh);
 }
 
 void QuadRenderer::add(const Vector3 &position)

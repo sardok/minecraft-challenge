@@ -1,0 +1,7 @@
+#ifndef WORLD_CONSTANTS_HPP
+#define WORLD_CONSTANTS_HPP
+
+constexpr int CHUNK_SIZE = 16,
+              CHUNK_AREA = CHUNK_SIZE * CHUNK_SIZE,
+              CHUNK_VOLUME = CHUNK_SIZE * CHUNK_SIZE * CHUNK_SIZE;
+#endif

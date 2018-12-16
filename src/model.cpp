@@ -1,11 +1,8 @@
 #include <model.hpp>
 
-Model::Model(
-    const std::vector<GLfloat> &vertex_positions,
-    const std::vector<GLfloat> &texture_coords,
-    const std::vector<GLuint> &indices)
+Model::Model(const Mesh &mesh)
 {
-    add_data(vertex_positions, texture_coords, indices);
+    add_data(mesh);
 }
 
 Model::~Model()
@@ -13,22 +10,19 @@ Model::~Model()
     delete_data();
 }
 
-void Model::add_data(
-    const std::vector<GLfloat> &vertex_positions,
-    const std::vector<GLfloat> &texture_coords,
-    const std::vector<GLuint> &indices)
+void Model::add_data(const Mesh &mesh)
 {
     if (vao != 0)
         delete_data();
 
-    indices_count = indices.size();
+    indices_count = mesh.indices.size();
 
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
-    add_vbo(3, vertex_positions);
-    add_vbo(2, texture_coords);
-    add_ebo(indices);
+    add_vbo(3, mesh.vertex_positions);
+    add_vbo(2, mesh.texture_coords);
+    add_ebo(mesh.indices);
 }
 
 void Model::delete_data()

@@ -13,14 +13,8 @@ BasicTexture::~BasicTexture()
     glDeleteTextures(1, &id);
 }
 
-void BasicTexture::load_from_file(const std::string &file)
+void BasicTexture::load_from_image(const sf::Image &img)
 {
-    sf::Image img;
-    if (!img.loadFromFile("res/textures/" + file + ".png"))
-    {
-        throw std::runtime_error("Unable to load " + file);
-    }
-
     glGenTextures(1, &id);
     glBindTexture(GL_TEXTURE_2D, id);
 
@@ -40,6 +34,15 @@ void BasicTexture::load_from_file(const std::string &file)
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+}
+
+void BasicTexture::load_from_file(const std::string &file)
+{
+    sf::Image img;
+    if (!img.loadFromFile("res/textures/" + file + ".png"))
+        throw std::runtime_error("Unable to load " + file);
+
+    load_from_image(img);
 }
 
 void BasicTexture::bind_texture() const

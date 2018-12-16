@@ -11,9 +11,9 @@ class Camera : public Entity
     void update();
     void hook_entity(const Entity &entity);
 
-    const Matrix4 get_view_matrix() const noexcept;
-    const Matrix4 get_projection_matrix() const noexcept;
-    const Matrix4 get_projection_view_matrix() const noexcept;
+    const Matrix4 &get_view_matrix() const noexcept;
+    const Matrix4 &get_projection_matrix() const noexcept;
+    const Matrix4 &get_projection_view_matrix() const noexcept;
 
   private:
     const Entity *entity;

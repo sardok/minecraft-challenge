@@ -3,22 +3,16 @@
 #include <vector>
 #include <GL/glew.h>
 #include <utils/non_copyable.hpp>
+#include <mesh.hpp>
 
 class Model : public NonCopyable
 {
   public:
     Model() = default;
-    Model(
-        const std::vector<GLfloat> &vertex_positions,
-        const std::vector<GLfloat> &texture_coords,
-        const std::vector<GLuint> &indices);
-
+    Model(const Mesh &mesh);
     ~Model();
 
-    void add_data(
-        const std::vector<GLfloat> &vertex_positions,
-        const std::vector<GLfloat> &texture_coords,
-        const std::vector<GLuint> &indices);
+    void add_data(const Mesh &mesh);
 
     void delete_data();
 

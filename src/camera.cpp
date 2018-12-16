@@ -21,17 +21,17 @@ void Camera::hook_entity(const Entity &entity)
     this->entity = &entity;
 }
 
-const Matrix4 Camera::get_view_matrix() const noexcept
+const Matrix4 &Camera::get_view_matrix() const noexcept
 {
     return view_matrix;
 }
 
-const Matrix4 Camera::get_projection_matrix() const noexcept
+const Matrix4 &Camera::get_projection_matrix() const noexcept
 {
     return projection_matrix;
 }
 
-const Matrix4 Camera::get_projection_view_matrix() const noexcept
+const Matrix4 &Camera::get_projection_view_matrix() const noexcept
 {
     return projection_view_matrix;
 }

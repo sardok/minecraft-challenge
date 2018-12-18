@@ -1,7 +1,7 @@
 #ifndef TEXTURE_BASIC_TEXTURE_HPP
 #define TEXTURE_BASIC_TEXTURE_HPP
 #include <string>
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <SFML/Graphics.hpp>
 
 class BasicTexture

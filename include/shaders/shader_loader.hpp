@@ -1,7 +1,7 @@
 #ifndef SHADERS_SHADER_LOADER_HPP
 #define SHADERS_SHADER_LOADER_HPP
 #include <string>
-#include <GL/glew.h>
+#include <glad/glad.h>
 
 GLuint load_shaders(
     const std::string &vertex_shader,

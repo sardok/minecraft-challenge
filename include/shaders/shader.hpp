@@ -1,7 +1,7 @@
 #ifndef SHADERS_SHADER_HPP
 #define SHADERS_SHADER_HPP
 #include <string>
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <maths/glm.hpp>
 #include <utils/non_copyable.hpp>
 

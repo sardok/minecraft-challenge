@@ -1,7 +1,7 @@
 #ifndef MESH_HPP
 #define MESH_HPP
 #include <vector>
-#include <GL/glew.h>
+#include <glad/glad.h>
 
 struct Mesh
 {

@@ -1,7 +1,7 @@
 #ifndef MODEL_HPP
 #define MODEL_HPP
 #include <vector>
-#include <GL/glew.h>
+#include <glad/glad.h>
 #include <utils/non_copyable.hpp>
 #include <mesh.hpp>
 
